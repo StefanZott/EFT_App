@@ -7,9 +7,9 @@ $db_server = "rdbms.strato.de";
 $db_name = "DB4270897";
  
 //Databese Username.
-$db_user = "U4270897";
+$db_user = "";
  
 //Database password.
-$db_password = "#Kemmeten1985!";
+$db_password = "";
  
 ?>
