@@ -22,7 +22,7 @@ export default class App extends Component {
 
   // Einer von 3 Lebenszeitzyklen
   componentDidMount() {
-    this._fetchData(); 
+    this._fetchData();  
   };
 
   render() {
