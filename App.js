@@ -1,9 +1,9 @@
 // Imports
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 // eigene Imports
-import AppNavigator from './JS/Navigation/AppNavigator';
+import AppNavigator from './src/Navigation/AppNavigator';
 
 export default class App extends Component {
   state = {data: [], isLoading: true };
