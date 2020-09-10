@@ -1,34 +1,9 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Dimensions, FlatList, Text, View, TextInput, Button } from 'react-native';
 
-const items = [
-  {
-    title: 'itemOne',
-    id: 'one'
-  },
-  {
-    title: 'itemTwo',
-    id: 'two'
-  },
-  {
-    title: 'itemThree',
-    id: 'three'
-  },
-  {
-    title: 'itemFour',
-    id: 'four'
-  },
-  {
-    title: 'itemFive',
-    id: 'five'
-  },
-  {
-    title: 'itemSix',
-    id: 'six'
-  }
-]
-
 export default class ExchangeObjectsScreen extends Component {
+  state = {items: []}
+
   render() {
     const image = { uri: "https://reactjs.org/logo-og.png" };
     const navigation = this.props.navigation
@@ -43,17 +18,26 @@ export default class ExchangeObjectsScreen extends Component {
         </View>
         
         <View style={styles.content}>
-          <FlatList
-            data={items}
-            renderItem={({item}) => (
-              <Button 
-                title={`Gehe zu ${item.title}`}
-                onPress={() => navigation.navigate('Detail', {
-                  detail: item.title
-                })}
-              />
-            )}
-          />
+
+          { this.state.items === null ?
+            <FlatList
+              data={this.state.items}
+                renderItem={({item}) => (
+                  <Button 
+                    title={`Gehe zu ${item.title}`}
+                      onPress={() => navigation.navigate('Detail', {
+                        detail: item.title
+                      })}
+                  />
+                )}
+            />
+            :
+            <View> 
+              <Text style={styles.content}>
+                Keine Eindräge gefunden!
+              </Text>
+            </View>
+          }
         </View>
         
         <View style={styles.footer}>

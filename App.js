@@ -1,28 +1,60 @@
 // Imports
 import React, {Component} from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import * as SQLite from 'expo-sqlite';
 
 // eigene Imports
 import AppNavigator from './src/Navigation/AppNavigator';
 
+// Datenbankverbindung
+const database = SQLite.openDatabase('eft.db');
+
 export default class App extends Component {
-  state = {data: [], isLoading: true };
+  state = {isLoading: true}; 
 
-  _fetchData = async () => {
-    await new Promise(_ => setTimeout(_, 3000));
-    this.setState({isLoading: false});
+  async _createTables() {
+    let createTableItem = 'CREATE TABLE IF NOT EXISTS item (itemID INTEGER PRIMARY KEY, Name TEXT) '
 
-    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/object.php')
+    // Relation erstellen, falls sie nicht existiert
+    database.transaction((transaction) => transaction.executeSql(createTableItem));
+  }
+
+  /* async _getData () {
+    console.log('SELECT-Abfrage');
+    database.transaction((transaction) =>
+        transaction.executeSql('SELECT * FROM item', [], ( transaction, results) => {
+          console.log(results.rows)
+        }
+    ))
+  } */
+
+  async _checkData (results)  {
+    results.map((item) => (
+      database.transaction((transaction) =>
+        transaction.executeSql('INSERT INTO item (ItemID,Name) VALUES (?,?)',
+        [item.ItemID, item.Name],
+        (transaction,result) => console.log(result.insertId)
+        ))
+    ))
+  };
+
+  async _fetchData () {
+    // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
+    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/object.php');
     const result = await resultApiCall.json();
 
-    this.setState({ data: result})
+    await this._createTables();
+    await this._checkData(result);
 
-    console.log(this.state.data);
+    // Nach beendigen des ladens der Daten von der Datenbank, soll der
+    // Loading Screen beendet werden.
+    this.setState({isLoading: false});
   };
 
   // Einer von 3 Lebenszeitzyklen
   componentDidMount() {
-    this._fetchData();  
+    // Falls Verbindung zum Internet besteht, sich die Daten von der Datenbank holen
+    this._fetchData();
   };
 
   render() {
