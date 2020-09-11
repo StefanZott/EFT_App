@@ -19,15 +19,6 @@ export default class App extends Component {
     database.transaction((transaction) => transaction.executeSql(createTableItem));
   }
 
-  /* async _getData () {
-    console.log('SELECT-Abfrage');
-    database.transaction((transaction) =>
-        transaction.executeSql('SELECT * FROM item', [], ( transaction, results) => {
-          console.log(results.rows)
-        }
-    ))
-  } */
-
   async _checkData (results)  {
     results.map((item) => (
       database.transaction((transaction) =>

@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Dimensions, FlatList, Text, View, TextInput, Button } from 'react-native';
+import * as SQLite from 'expo-sqlite';
+
+// Datenbankverbindung
+const database = SQLite.openDatabase('eft.db');
 
 export default class ExchangeObjectsScreen extends Component {
-  state = {items: []}
+  state = {items: []};
+
+  _getData = async (myCallback) => {
+    database.transaction((tx) => {
+      tx.executeSql('SELECT * FROM item', [], (
+        tx,
+        results
+      ) => {
+        myCallback(results.rows._array);
+      });
+    });
+  }
+
+  componentDidMount() {
+    this._getData((rows) => {
+      this.setState({items: rows});
+    });
+  } 
 
   render() {
     const image = { uri: "https://reactjs.org/logo-og.png" };
@@ -19,7 +40,20 @@ export default class ExchangeObjectsScreen extends Component {
         
         <View style={styles.content}>
 
-          { this.state.items === null ?
+        <FlatList
+              data={this.state.items}
+              keyExtractor={item => item.ItemID}
+                renderItem={({item}) => ( 
+                  <Button 
+                    title={`Gehe zu ${item.Name}`}
+                      onPress={() => navigation.navigate('Detail', {
+                        detail: item.Name
+                      })}
+                  />
+                )}
+            />
+
+          {/* { this.state.items == null ?
             <FlatList
               data={this.state.items}
                 renderItem={({item}) => (
@@ -35,9 +69,10 @@ export default class ExchangeObjectsScreen extends Component {
             <View> 
               <Text style={styles.content}>
                 Keine Eindräge gefunden!
+                {console.log(this.state.items)}
               </Text>
             </View>
-          }
+          } */}
         </View>
         
         <View style={styles.footer}>
