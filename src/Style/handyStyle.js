@@ -3,7 +3,12 @@ import { StyleSheet, Dimensions } from 'react-native';
 const styles = StyleSheet.create({
     container: {
       height: Dimensions.get('window').height,
-      width: Dimensions.get('window').width
+      width: Dimensions.get('window').width,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    activityIndicator: {
+      alignSelf: 'center'   
     },
     image: {
       height: Dimensions.get('window').height,
@@ -33,10 +38,22 @@ const styles = StyleSheet.create({
     },
     textInput: {
       position: 'absolute',
-      top: 50,
+      top: 15,
       height: 30,
       width: '80%',
       backgroundColor: 'white'
+    },
+    textButton: {
+      color: 'red',
+      backgroundColor: 'white',
+      margin: 3,
+      height: 40,
+      textAlignVertical: 'center',
+      textAlign: 'center',
+      borderWidth: 2,
+      borderRadius: 25,
+      fontSize: 30,
+      fontFamily: 'BlackOpsOne-Regular'
     }
 });
 

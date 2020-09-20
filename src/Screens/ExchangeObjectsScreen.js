@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, Dimensions, FlatList, Text, View, TextInput, Button } from 'react-native';
+import { ImageBackground, Dimensions, FlatList, Text, View, TextInput, Button } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
@@ -12,10 +12,8 @@ export default class ExchangeObjectsScreen extends Component {
 
   _getData = async (myCallback) => {
     database.transaction((tx) => {
-      tx.executeSql('SELECT * FROM item', [], (
-        tx,
-        results
-      ) => {
+      tx.executeSql('SELECT * FROM item', [], 
+      (tx,results) => {
         myCallback(results.rows._array);
       });
     });
@@ -33,21 +31,24 @@ export default class ExchangeObjectsScreen extends Component {
 
     return (
       <View style={styles.container}>
+        {console.log('ExchangeObjectsScreen')} 
         <ImageBackground source={styles.backgroundImage} style={styles.image}>
           <View style={styles.header}>
-            <TextInput style={styles.textInput} />
+            <TextInput style={styles.textInput} /> 
           </View>
-          <View style={styles.content}>
+          <View style={styles.content}>  
             <FlatList
               data={this.state.items}
               keyExtractor={item => item.ItemID}
                 renderItem={({item}) => ( 
-                  <Button 
-                    title={`Gehe zu ${item.Name}`}
-                      onPress={() => navigation.navigate('Detail', {
-                        detail: item.Name
-                      })}
-                  />
+                  <Text 
+                    style={styles.button} 
+                    onPress={() => navigation.navigate('Detail', { 
+                      detail: item.Name
+                    })}
+                  >
+                    {item.Name} 
+                  </Text>  
                 )}
             />
           </View>

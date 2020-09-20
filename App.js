@@ -1,10 +1,12 @@
 // Imports
 import React, {Component} from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, Dimensions } from 'react-native';
 import * as SQLite from 'expo-sqlite';
+import * as Font from 'expo-font';
 
 // eigene Imports
 import AppNavigator from './src/Navigation/AppNavigator';
+import Style from './src/Style/Style';
 
 // Datenbankverbindung
 const database = SQLite.openDatabase('eft.db');
@@ -37,22 +39,35 @@ export default class App extends Component {
     await this._createTables();
     await this._checkData(result);
 
-    // Nach beendigen des ladens der Daten von der Datenbank, soll der
-    // Loading Screen beendet werden.
-    this.setState({isLoading: false});
+    
   };
 
+  _fetchFont = () => {
+    return Font.loadAsync({
+      'BlackOpsOne-Regular': require('./src/assets/fonts/BlackOpsOne-Regular.ttf')
+    })
+  }
+
   // Einer von 3 Lebenszeitzyklen
-  componentDidMount() {
+  async componentDidMount() {
     // Falls Verbindung zum Internet besteht, sich die Daten von der Datenbank holen
-    this._fetchData();
+    await this._fetchData();
+    await this._fetchFont();
+    
+    // Nach beendigen des ladens der Daten von der Datenbank, soll der
+    // Loading Screen beendet werden.
+    await this.setState({isLoading: false});
   };
 
   render() {
-    if (this.state.isLoading) {
+    let styles = Style(Dimensions.get('window').width);
+
+    if (this.state.isLoading) { 
       return (
         <View style={styles.container}>
-          <ActivityIndicator size="large" color="orange"/>
+          <View  style={styles.activityIndicator}>
+            <ActivityIndicator size='large' color='orange'/>
+          </View>
         </View>
       )
     }
@@ -63,10 +78,3 @@ export default class App extends Component {
     return <AppNavigator />;
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center'
-  }
-})
