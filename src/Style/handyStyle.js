@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       borderWidth: 2,
       borderRadius: 25,
-      borderColor: 'red',
+      borderColor: 'blue',
       fontSize: 30,
       fontFamily: 'BlackOpsOne-Regular'
     }
