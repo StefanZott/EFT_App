@@ -33,7 +33,7 @@ export default class App extends Component {
 
   async _fetchData () {
     // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
-    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/object.php');
+    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
     const result = await resultApiCall.json();
 
     await this._createTables();
@@ -51,12 +51,12 @@ export default class App extends Component {
   // Einer von 3 Lebenszeitzyklen
   async componentDidMount() {
     // Falls Verbindung zum Internet besteht, sich die Daten von der Datenbank holen
-    await this._fetchData();
+    // await this._fetchData();
     await this._fetchFont();
     
     // Nach beendigen des ladens der Daten von der Datenbank, soll der
     // Loading Screen beendet werden.
-    await this.setState({isLoading: false});
+    await this.setState({isLoading: false}); 
   };
 
   render() {

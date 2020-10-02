@@ -14,7 +14,9 @@ export default function Style(params) {
             footer: HandyStyle.footer,
             textInput: HandyStyle.textInput,
             button: HandyStyle.textButton,
-            activityIndicator: HandyStyle.activityIndicator
+            activityIndicator: HandyStyle.activityIndicator,
+            headerStyle: HandyStyle.headerStyle,
+            headerTitleStyle: HandyStyle.headerTitleStyle
         }
         return object;
       } else if (screenWidth <= 1024) {

@@ -42,8 +42,8 @@ export default class ExchangeObjectsScreen extends Component {
               keyExtractor={item => item.ItemID}
                 renderItem={({item}) => ( 
                   <Text 
-                    style={styles.button} 
-                    onPress={() => navigation.navigate('Detail', { 
+                    style={styles.button}  
+                    onPress={() => navigation.navigate('Detail', {
                       detail: item.Name
                     })}
                   >

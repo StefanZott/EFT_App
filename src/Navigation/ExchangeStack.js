@@ -11,16 +11,18 @@ export default function ExchangeStack() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: 'blue'
+            backgroundColor: 'blue',
           },
           headerTitleStyle: {
-            alignSelf: 'center'
+            alignSelf: 'center',
+            fontFamily: 'BlackOpsOne-Regular',
+            fontSize: 40
           }
         }}
       >
         <Stack.Screen 
           name="ExchangeObjects" 
-          component={ExchangeObjectsScreen} 
+          component={ExchangeObjectsScreen}
         />
         <Stack.Screen 
           name="Detail" 

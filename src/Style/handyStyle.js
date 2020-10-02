@@ -44,14 +44,15 @@ const styles = StyleSheet.create({
       backgroundColor: 'white'
     },
     textButton: {
-      color: 'red',
-      backgroundColor: 'white',
+      color: 'white',
+      backgroundColor: 'black',
       margin: 3,
       height: 40,
       textAlignVertical: 'center',
       textAlign: 'center',
       borderWidth: 2,
       borderRadius: 25,
+      borderColor: 'red',
       fontSize: 30,
       fontFamily: 'BlackOpsOne-Regular'
     }
