@@ -33,6 +33,7 @@ export default class App extends Component {
 
   async _fetchData () {
     // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
+    // ich will wissen ob es überschrieben wird
     const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
     const result = await resultApiCall.json();
 
