@@ -33,6 +33,7 @@ export default class App extends Component {
 
   async _fetchData () {
     // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
+    // Ich komm vom master branch
     await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
     const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json');
     const result = await resultApiCall.json();
