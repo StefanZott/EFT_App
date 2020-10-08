@@ -31,11 +31,14 @@ try {
         $statement = $pdo->prepare($selectQuery);
         $statement->execute();
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $resultsJSON[$nameValue] = json_encode($results , JSON_PRETTY_PRINT);
+        $resultsJSON[$nameValue] = $results;
     }
 
+    // Später entfernen
     var_dump($resultsJSON);
-    return $resultsJSON;
+
+    file_put_contents('data.json','');
+    file_put_contents('data.json',json_encode($resultsJSON));
 
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
