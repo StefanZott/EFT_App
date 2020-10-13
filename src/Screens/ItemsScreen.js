@@ -7,7 +7,7 @@ import Style from '../Style/Style';
 // Datenbankverbindung
 const database = SQLite.openDatabase('eft.db');
 
-export default class ExchangeObjectsScreen extends Component {
+export default class ItemsScreen extends Component {
   state = {items: []};
 
   _getData = async (myCallback) => {

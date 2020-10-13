@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import ItemScreen from '../Screens/ItemScreen';
+import ItemsScreen from '../Screens/ItemsScreen';
 import DetailScreen from '../Screens/DetailScreen';
 
 const Stack = createStackNavigator();
@@ -22,7 +22,7 @@ export default function ItemsStack() {
       >
         <Stack.Screen 
           name="Items" 
-          component={ItemScreen}
+          component={ItemsScreen}
         />
         <Stack.Screen 
           name="Detail" 
