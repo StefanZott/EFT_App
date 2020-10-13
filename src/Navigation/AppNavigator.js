@@ -6,7 +6,7 @@ import * as Icon from '@expo/vector-icons';
 
 // Eigene Imports
 import HomeStack from './HomeStack';
-import ExchangeObjectsStack from './ExchangeStack';
+import ItemsStack from './ItemsStack';
 
 // Variablen
 const Drawer = createDrawerNavigator();
@@ -32,7 +32,7 @@ export default function AppNavigator() {
 
                 if (route.name === 'home')
                   icon = focused ? 'home' : 'home-outline';
-                else if (route.name === 'exchangeObjects')
+                else if (route.name === 'items')
                   icon = focused ? 'swap-horizontal-bold' : 'swap-horizontal';
                 return (
                   <Icon.MaterialCommunityIcons 
@@ -54,9 +54,9 @@ export default function AppNavigator() {
             options={{title: 'home' }} 
             />
           <Drawer.Screen 
-            name="exchangeObjects" 
-            component={ExchangeObjectsStack} 
-            options={{title: 'Tausch Objekte' }}
+            name="items" 
+            component={ItemsStack} 
+            options={{title: 'Items' }}
             />
         </Drawer.Navigator>
       </NavigationContainer>

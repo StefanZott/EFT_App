@@ -31,7 +31,6 @@ export default class ExchangeObjectsScreen extends Component {
 
     return (
       <View style={styles.container}>
-        {console.log('ExchangeObjectsScreen')} 
         <ImageBackground source={styles.backgroundImage} style={styles.image}>
           <View style={styles.header}>
             <TextInput style={styles.textInput} /> 

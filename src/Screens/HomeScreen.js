@@ -8,7 +8,6 @@ export default class HomeScreen extends Component {
     let style = Style(Dimensions.get('window').width);
     return (
       <View style={style.container}>
-        {console.log('HomeScreen')}
         <ImageBackground source={style.backgroundImage} style={style.image}>
           <Text style={style.copyright}>Copyright by Luecke-IT</Text> 
         </ImageBackground>  

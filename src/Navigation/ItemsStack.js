@@ -1,12 +1,12 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import ExchangeObjectsScreen from '../Screens/ExchangeObjectsScreen';
+import ItemScreen from '../Screens/ItemScreen';
 import DetailScreen from '../Screens/DetailScreen';
 
 const Stack = createStackNavigator();
 
-export default function ExchangeStack() {
+export default function ItemsStack() {
   return (
       <Stack.Navigator
         screenOptions={{
@@ -21,8 +21,8 @@ export default function ExchangeStack() {
         }}
       >
         <Stack.Screen 
-          name="ExchangeObjects" 
-          component={ExchangeObjectsScreen}
+          name="Items" 
+          component={ItemScreen}
         />
         <Stack.Screen 
           name="Detail" 
