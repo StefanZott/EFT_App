@@ -7,6 +7,7 @@ import * as Font from 'expo-font';
 // eigene Imports
 import AppNavigator from './src/Navigation/AppNavigator';
 import Style from './src/Style/Style';
+import db from './src/Database/db';
 
 // Datenbankverbindung
 const database = SQLite.openDatabase('eft.db');
@@ -14,30 +15,17 @@ const database = SQLite.openDatabase('eft.db');
 export default class App extends Component {
   state = {isLoading: true}; 
 
-  async _createTables() {
-    let createTableItem = 'CREATE TABLE IF NOT EXISTS item (itemID INTEGER PRIMARY KEY, Name TEXT) '
-
-    // Relation erstellen, falls sie nicht existiert
-    database.transaction((transaction) => transaction.executeSql(createTableItem));
-  }
-
-  async _checkData (results)  {
-    results.map((item) => (
-      database.transaction((transaction) =>
-        transaction.executeSql('INSERT INTO item (ItemID,Name) VALUES (?,?)',
-        [item.ItemID, item.Name],
-        (transaction,result) => console.log(result.insertId)
-        ))
-    ))
-  };
-
   async _fetchData () {
     // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
-    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
+
+    // Ich komm vom master branch
+    await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
+    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json');
+
+    // ich will wissen ob es überschrieben wird
     const result = await resultApiCall.json();
 
-    await this._createTables();
-    await this._checkData(result);
+    await db._createTables();
 
     
   };
@@ -51,7 +39,7 @@ export default class App extends Component {
   // Einer von 3 Lebenszeitzyklen
   async componentDidMount() {
     // Falls Verbindung zum Internet besteht, sich die Daten von der Datenbank holen
-    // await this._fetchData();
+    await this._fetchData();
     await this._fetchFont();
     
     // Nach beendigen des ladens der Daten von der Datenbank, soll der
