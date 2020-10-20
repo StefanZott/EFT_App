@@ -13,21 +13,16 @@ import db from './src/Database/db';
 const database = SQLite.openDatabase('eft.db');
 
 export default class App extends Component {
-  state = {isLoading: true}; 
+  state = {isLoading: true , data : []}; 
 
-  async _fetchData () {
-    // Mit der Methode Fetch werden Daten von der Datenbank abgefragt  
-
-    // Ich komm vom master branch
-    await fetch('http://it-luecke.de/EscapeFromTarkov_App/API.php');
-    const resultApiCall = await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json');
-
-    // ich will wissen ob es überschrieben wird
-    const result = await resultApiCall.json();
-
-    await db._createTables();
-
-    
+  _fetchData = async (myCallback) => {
+    await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json')
+    .then(response => response.json())
+    .then(data => {
+      myCallback(data)
+    })
+    .catch((error) => error) 
+    .done();   
   };
 
   _fetchFont = () => {
@@ -37,18 +32,18 @@ export default class App extends Component {
   }
 
   // Einer von 3 Lebenszeitzyklen
-  async componentDidMount() {
-    // Falls Verbindung zum Internet besteht, sich die Daten von der Datenbank holen
-    await this._fetchData();
-    await this._fetchFont();
-    
-    // Nach beendigen des ladens der Daten von der Datenbank, soll der
-    // Loading Screen beendet werden.
-    await this.setState({isLoading: false}); 
-  };
+  async componentDidMount() { 
+    this._fetchData((data) => {
+      this._fetchFont();
+      db._createTables();
+      db._insterDataInRelation(data); 
+      db._checkData();
+      this.setState({isLoading: false});  
+    }) 
+  }; 
 
   render() {
-    let styles = Style(Dimensions.get('window').width);
+    let styles = Style(Dimensions.get('window').width); 
 
     if (this.state.isLoading) { 
       return (
