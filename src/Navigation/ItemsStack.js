@@ -11,7 +11,7 @@ export default function ItemsStack() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: 'blue',
+            backgroundColor: '#cbcbc8',
           },
           headerTitleStyle: {
             alignSelf: 'center',

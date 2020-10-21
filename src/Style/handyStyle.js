@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
     container: {
@@ -41,7 +42,15 @@ const styles = StyleSheet.create({
       top: 15,
       height: 30,
       width: '80%',
-      backgroundColor: 'white'
+      backgroundColor: 'black',
+      borderTopWidth: 2,
+      borderBottomWidth: 2,
+      borderColor: 'white',
+      color: 'white'
+    },
+    listSeparator: {
+      height: 2,
+      backgroundColor: null
     },
     textButton: {
       color: 'white',
