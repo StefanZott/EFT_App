@@ -10,19 +10,19 @@ import Style from './src/Style/Style';
 import db from './src/Database/db';
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft.db');
+let database = SQLite.openDatabase('eft.db');
 
 export default class App extends Component {
-  state = {isLoading: true , data : []}; 
+  state = {isLoading: true}; 
 
   _fetchData = async (myCallback) => {
     await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json')
     .then(response => response.json())
-    .then(data => {
+    .then(data => { 
       myCallback(data)
     })
-    .catch((error) => error) 
-    .done();   
+    .catch((error) => alert('FEHLER: \n' + error)) 
+    .done()  
   };
 
   _fetchFont = () => {
@@ -32,14 +32,14 @@ export default class App extends Component {
   }
 
   // Einer von 3 Lebenszeitzyklen
-  async componentDidMount() { 
-    this._fetchData((data) => {
+  async componentDidMount() {  
+    this._fetchData((data) => { 
       this._fetchFont();
+      db._dropTables();
       db._createTables();
-      db._insterDataInRelation(data); 
-      db._checkData();
-      this.setState({isLoading: false});  
-    }) 
+      db._insterDataInRelation(data);
+      this.setState({isLoading: false}); 
+    })  
   }; 
 
   render() {

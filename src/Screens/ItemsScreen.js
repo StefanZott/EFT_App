@@ -5,17 +5,20 @@ import * as SQLite from 'expo-sqlite';
 import Style from '../Style/Style';
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft.db');
+let database = SQLite.openDatabase('eft.db');
 
 export default class ItemsScreen extends Component {
   state = {items: []};
 
   _getData = async (myCallback) => {
     database.transaction((tx) => {
-      tx.executeSql('SELECT * FROM item', [], 
-      (tx,results) => {
-        myCallback(results.rows._array);
-      });
+      tx.executeSql('SELECT * FROM table_containers', [], 
+      (tx,results) => { 
+        console.log('_getData')
+        console.log(results.rows)
+        myCallback(results.rows._array)
+      },
+      (tx,err) => alert(err))
     });
   }
 
@@ -38,7 +41,7 @@ export default class ItemsScreen extends Component {
           <View style={styles.content}>  
             <FlatList
               data={this.state.items}
-              keyExtractor={item => item.ItemID}
+              keyExtractor={item => item.IID}
                 renderItem={({item}) => ( 
                   <Text 
                     style={styles.button}  
