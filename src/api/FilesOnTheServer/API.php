@@ -37,6 +37,7 @@ try {
         $resultsJSON[$nameValue] = $results;
     }
 
+
     file_put_contents('data.json' , json_encode($resultsJSON , JSON_PRETTY_PRINT));
 
 } catch (PDOException $e) {
