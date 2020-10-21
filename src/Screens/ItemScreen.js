@@ -4,6 +4,7 @@ import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
 import ItemList from '../Components/ItemList';
+import SQLStrings from '../Strings/SQLStrings';
 
 // Datenbankverbindung
 const database = SQLite.openDatabase('eft_three.db');
@@ -12,8 +13,10 @@ export default class ExchangeObjectsScreen extends Component {
   state = {items: []};
 
   _getData = async (myCallback) => {
+    let innerJoinString = 'SELECT name FROM table_armbands UNION SELECT name FROM table_backpacks UNION SELECT name FROM table_provisions UNION SELECT name FROM table_headsets UNION SELECT name FROM table_eyewears UNION SELECT name FROM table_containers UNION SELECT name FROM table_secure_containers ORDER BY name ASC';
+
     database.transaction((tx) => {
-      tx.executeSql('SELECT * FROM table_items', [], 
+      tx.executeSql(innerJoinString, [], 
       (tx,results) => {
         myCallback(results.rows._array);
       });
@@ -41,7 +44,7 @@ export default class ExchangeObjectsScreen extends Component {
           <View style={styles.content}>  
             <FlatList 
               data={this.state.items}
-              keyExtractor = {items => items.IID} //später ID verwenden als Schlüssel
+              keyExtractor = {items => items.name} //später ID verwenden als Schlüssel
               renderItem = {({item}) => (
                 <ItemList item = {item} onPress = {() => navigation.navigate('Detail', { detail: item.name})} />
               )}

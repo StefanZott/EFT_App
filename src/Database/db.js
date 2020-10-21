@@ -35,8 +35,6 @@ export default class Database extends Component {
 
     // Diese Funktion befüllt die Relationen mit Daten
     static _insterDataInRelation(getData) {
-      /* console.log('--------------------------------------------------------')
-      console.log(getData['table_items']) */
         // Befüllt die Realtion table_items
         for (let index = 0; index < getData['table_items'].length; index++) {
             database.transaction((transaction) =>

@@ -19,8 +19,6 @@ export default class App extends Component {
     await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json')
     .then(response => response.json())
     .then(data => { 
-      console.log('--------------------------------------------------------')
-      console.log(data['table_items'])
       myCallback(data)
     })
     .catch((error) => alert('FEHLER: \n' + error)) 
