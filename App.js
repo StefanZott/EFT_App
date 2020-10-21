@@ -10,7 +10,7 @@ import Style from './src/Style/Style';
 import db from './src/Database/db';
 
 // Datenbankverbindung
-let database = SQLite.openDatabase('eft.db');
+let database = SQLite.openDatabase('eft_three.db');
 
 export default class App extends Component {
   state = {isLoading: true}; 
@@ -19,10 +19,12 @@ export default class App extends Component {
     await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json')
     .then(response => response.json())
     .then(data => { 
+      console.log('--------------------------------------------------------')
+      console.log(data['table_items'])
       myCallback(data)
     })
     .catch((error) => alert('FEHLER: \n' + error)) 
-    .done()  
+    .done() 
   };
 
   _fetchFont = () => {
@@ -33,7 +35,7 @@ export default class App extends Component {
 
   // Einer von 3 Lebenszeitzyklen
   async componentDidMount() {  
-    this._fetchData((data) => { 
+    this._fetchData((data) => {
       this._fetchFont();
       db._dropTables();
       db._createTables();

@@ -1,6 +1,6 @@
 let sqlStrings =  {
     createTable: {
-        createTableItems: 'CREATE TABLE IF NOT EXISTS table_items (IID INTEGER PRIMARY KEY, Name TEXT, UNIQUE(IID))',
+        createTableItems: 'CREATE TABLE IF NOT EXISTS table_items (IID INTEGER PRIMARY KEY, name TEXT, UNIQUE(IID))',
         createTableProvisions: 'CREATE TABLE IF NOT EXISTS table_provisions (PID INTEGER PRIMARY KEY, IID INTEGER , image TEXT , name TEXT , energy INTEGER , hydration INTEGER , FOREIGN KEY (IID) REFERENCES table_items (IID))',
         createTableBackpacks: 'CREATE TABLE IF NOT EXISTS table_backpacks (BID INTEGER PRIMARY KEY, IID INTEGER, name Text, image Text, inner_grid Text, outer_grid Text, slots INTEGER, storage_efficiency REAL, weight REAL, FOREIGN KEY (IID) REFERENCES table_items (IID))',
         createTableEyewears: 'CREATE TABLE IF NOT EXISTS table_eyewears (EwID INTEGER PRIMARY KEY, IID INTEGER, image TEXT, name TEXT, FOREIGN KEY (IID) REFERENCES table_items (IID))',

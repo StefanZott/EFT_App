@@ -6,14 +6,14 @@ import Style from '../Style/Style';
 import ItemList from '../Components/ItemList';
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft.db');
+const database = SQLite.openDatabase('eft_three.db');
 
 export default class ExchangeObjectsScreen extends Component {
-  /* state = {items: []};
+  state = {items: []};
 
   _getData = async (myCallback) => {
     database.transaction((tx) => {
-      tx.executeSql('SELECT * FROM item', [], 
+      tx.executeSql('SELECT * FROM table_items', [], 
       (tx,results) => {
         myCallback(results.rows._array);
       });
@@ -25,7 +25,7 @@ export default class ExchangeObjectsScreen extends Component {
       this.setState({items: rows});
     });
   } 
- */
+
   render() {
     const navigation = this.props.navigation
     let styles = Style(Dimensions.get('window').width);
@@ -33,34 +33,17 @@ export default class ExchangeObjectsScreen extends Component {
 
     return (
       <View style={styles.container}>
+        {/* console.log(this.state.items) */}
         <ImageBackground source={styles.backgroundImage} style={styles.image}>
           <View style={styles.header}>
             <TextInput style={styles.textInput} /> 
           </View>
           <View style={styles.content}>  
-           {/*  <FlatList
-              data={this.state.items}
-              keyExtractor={item => item.ItemID}
-                renderItem={({item}) => ( 
-                  <Text 
-                    style={styles.button}  
-                    onPress={() => navigation.navigate('Detail', {
-                      detail: item.Name
-                    })}
-                  >
-                    {item.Name} 
-                  </Text>  
-                )}
-            /> */}
             <FlatList 
-              data = {[
-                {id: '1', name: 'soap'},
-                {id: '2', name: 'battery'},
-                {id: '3', name: 'knife'},
-              ]}
-              keyExtractor = {item => item.id} //später ID verwenden als Schlüssel
+              data={this.state.items}
+              keyExtractor = {items => items.IID} //später ID verwenden als Schlüssel
               renderItem = {({item}) => (
-                <ItemList item = {item} onPress = {() => navigation.navigate('Detail', { detail: item.Name})} />
+                <ItemList item = {item} onPress = {() => navigation.navigate('Detail', { detail: item.name})} />
               )}
               ItemSeparatorComponent = {() => <View style={styles.listSeparator} />}
             />

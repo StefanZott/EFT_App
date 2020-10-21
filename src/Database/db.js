@@ -5,7 +5,7 @@ import * as SQLite from 'expo-sqlite';
 import SQLStrings from '../Strings/SQLStrings';
 
 // Datenbankverbindung
-let database = SQLite.openDatabase('eft.db');
+let database = SQLite.openDatabase('eft_three.db');
 
 export default class Database extends Component {
 
@@ -35,12 +35,13 @@ export default class Database extends Component {
 
     // Diese Funktion befüllt die Relationen mit Daten
     static _insterDataInRelation(getData) {
-
+      /* console.log('--------------------------------------------------------')
+      console.log(getData['table_items']) */
         // Befüllt die Realtion table_items
         for (let index = 0; index < getData['table_items'].length; index++) {
             database.transaction((transaction) =>
-                transaction.executeSql('INSERT INTO table_items (IID,Name) VALUES (?,?)',
-                [getData['table_items'][index]['IID'] , getData['table_items'][index]['Name']],
+                transaction.executeSql('INSERT INTO table_items (IID,name) VALUES (?,?)',
+                [getData['table_items'][index]['IID'] , getData['table_items'][index]['name']],
             ))
         }
 
