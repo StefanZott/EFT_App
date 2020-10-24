@@ -8,7 +8,7 @@ export default function Style(params) {
             container: HandyStyle.container,
             image: HandyStyle.image,
             copyright: HandyStyle.copyright,
-            backgroundImage: require('../assets/images/eft_480.png'),
+            backgroundImage: require('../assets/images/background/eft_480.png'),
             header: HandyStyle.header,
             content: HandyStyle.content,
             footer: HandyStyle.footer,
@@ -17,7 +17,21 @@ export default function Style(params) {
             activityIndicator: HandyStyle.activityIndicator,
             headerStyle: HandyStyle.headerStyle,
             headerTitleStyle: HandyStyle.headerTitleStyle,
-            listSeparator: HandyStyle.listSeparator
+            listSeparator: HandyStyle.listSeparator,
+            textDetail: HandyStyle.textDetail,
+            textDetailHeader: HandyStyle.textDetailHeader,
+            detailheader: HandyStyle.detailheader,
+            textDetailKey: HandyStyle.textDetailKey,
+            textDetailValue: HandyStyle.textDetailValue,
+            contentDetail: HandyStyle.contentDetail,
+            contentDetailLeft: HandyStyle.contentDetailLeft,
+            contentDetailRight: HandyStyle.contentDetailRight,
+            contentDetailTop: HandyStyle.contentDetailTop,
+            contentDetailBottom: HandyStyle.contentDetailBottom,
+            image64x127: HandyStyle.image64x127,
+            image250x292: HandyStyle.image250x292,
+            image250x350: HandyStyle.image250x350,
+            imageUnkown: HandyStyle.imageUnkown
         }
         return object;
       } else if (screenWidth <= 1024) {

@@ -5,7 +5,7 @@ export default function(props){
     const {item, onPress }= props; 
     return (
         <Button 
-            title={item.name}
+            title={item.Name}
             onPress = {onPress}
             color='black'
         />
