@@ -4,6 +4,7 @@ import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
 import ItemList from '../Components/ItemList';
+import SearchInput from '../Components/SearchInput';
 import SQLStrings from '../Strings/SQLStrings';
 
 // Datenbankverbindung
@@ -36,10 +37,10 @@ export default class ExchangeObjectsScreen extends Component {
 
     return (
       <View style={styles.container}>
-        {/* console.log(this.state.items) */}
+        { console.log(this.state.items) }
         <ImageBackground source={styles.backgroundImage} style={styles.image}>
           <View style={styles.header}>
-            <TextInput style={styles.textInput} /> 
+            <SearchInput /> 
           </View>
           <View style={styles.content}>  
             <FlatList 
