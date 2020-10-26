@@ -77,7 +77,6 @@ export default class DetailScreen extends Component {
                             {
                                 getImage(name , style)
                             }
-                            
                             <View style={style.contentDetailBottom}>
                                 <View style={style.contentDetailLeft}>
                                     {

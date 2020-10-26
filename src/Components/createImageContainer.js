@@ -240,7 +240,7 @@ export default function getImage(name , style) {
         case 'Bottle of Dan Jackiel Whiskey':
           return <View style={style.contentDetailTop , {height: style.image64x127.height}}> 
                     <Image
-                      source={require('../assets/images/itemImage/provisions/whisky.png')}
+                      source={require('../assets/images/itemImage/provisions/whiskey.png')}
                     />
                   </View>
 
@@ -375,119 +375,119 @@ export default function getImage(name , style) {
         case "Lucky Scav Junkbox":
           return <View style={style.contentDetailTop , {height: style.image250x250.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/lucky.png')}
+                      source={require('../assets/images/itemImage/container/lucky.png')}
                     />
                   </View>
         
         case "T H I C C Items Case":
           return <View style={style.contentDetailTop , {height: style.image250x150.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/thicc.png')}
+                      source={require('../assets/images/itemImage/container/thicc.png')}
                     />
                   </View>
         
         case "Items Case":
           return <View style={style.contentDetailTop , {height: style.image250x250.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/icase.png')}
+                      source={require('../assets/images/itemImage/container/icase.png')}
                     />
                   </View>
         
         case "T H I C C Weapon Case":
           return <View style={style.contentDetailTop , {height: style.image250x100.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/thiccWeaponCase.png')}
+                      source={require('../assets/images/itemImage/container/thiccWeaponCase.png')}
                     />
                   </View>
 
         case "Weapon Case":
           return <View style={style.contentDetailTop , {height: style.image250x100.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/weaponCase.png')}
+                      source={require('../assets/images/itemImage/container/weaponCase.png')}
                     />
                   </View>
         
         case "Meds case":
           return <View style={style.contentDetailTop , {height: style.image190x190.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/medsCase.png')}
+                      source={require('../assets/images/itemImage/container/medsCase.png')}
                     />
                   </View>
         
         case "Grenade case":
           return <View style={style.contentDetailTop , {height: style.image190x190.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/grenadeCase.png')}
+                      source={require('../assets/images/itemImage/container/grenadeCase.png')}
                     />
                   </View>
         
         case "Mr. Holodilnick thermobag":
           return <View style={style.contentDetailTop , {height: style.image190x190.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/thermobag.png')}
+                      source={require('../assets/images/itemImage/container/thermobag.png')}
                     />
                   </View>
         
         case "Magazine case":
           return <View style={style.contentDetailTop , {height: style.image190x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/magbox.png')}
+                      source={require('../assets/images/itemImage/container/magbox.png')}
                     />
                   </View>
         
         case "Ammo case":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/ammoCase.png')}
+                      source={require('../assets/images/itemImage/container/ammoCase.png')}
                     />
                   </View>
         
         case "Money case":
           return <View style={style.contentDetailTop , {height: style.image190x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/moneyCase.png')}
+                      source={require('../assets/images/itemImage/container/moneyCase.png')}
                     />
                   </View>
         
         case "Pistol case":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/pistolCase.png')}
+                      source={require('../assets/images/itemImage/container/pistolCase.png')}
                     />
                   </View>
 
         case "Documents case ":
           return <View style={style.contentDetailTop , {height: style.image64x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/documentCase.png')}
+                      source={require('../assets/images/itemImage/container/documentCase.png')}
                     />
                   </View>
         
         case "Small S I C C case":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/smallSicc.png')}
+                      source={require('../assets/images/itemImage/container/smallSicc.png')}
                     />
                   </View>
 
         case "Keytool":
           return <View style={style.contentDetailTop , {height: style.image64x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Keybar.png')}
+                      source={require('../assets/images/itemImage/container/Keybar.png')}
                     />
                   </View>
         
         case "Wallet":
           return <View style={style.contentDetailTop , {height: style.image64x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Wallet.png')}
+                      source={require('../assets/images/itemImage/container/Wallet.png')}
                     />
                   </View>
         
         case "Dogtag case":
           return <View style={style.contentDetailTop , {height: style.image64x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/DogtagCase.png')}
+                      source={require('../assets/images/itemImage/container/DogtagCase.png')}
                     />
                   </View>
 
@@ -495,77 +495,77 @@ export default function getImage(name , style) {
         case "Tactical glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Tactical_Glasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Tactical_Glasses.png')}
                     />
                   </View>
         
         case "Anti-Fragmentation glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Anti-fragmentation_goggles.png')}
+                      source={require('../assets/images/itemImage/eyewear/Anti-fragmentation_goggles.png')}
                     />
                   </View>
         
         case "6B34 Anti-Fragmentation glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/6b34_glasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/6b34_glasses.png')}
                     />
                   </View>
         
         case "Round frame sunglasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Round_frame_sunglasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Round_frame_sunglasses.png')}
                     />
                   </View>
         
         case "Dundukk sport sundglasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Dundukk_sport_sunglasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Dundukk_sport_sunglasses.png')}
                     />
                   </View>
         
         case "SI M frame safety glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/SIMcion.png')}
+                      source={require('../assets/images/itemImage/eyewear/SIMcion.png')}
                     />
                   </View>
         
         case "Pyramex Proximity safety glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Pyramexicon.png')}
+                      source={require('../assets/images/itemImage/eyewear/Pyramexicon.png')}
                     />
                   </View>
         
         case "RayBench Aviator glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/RayBench_Hipster_Reserve_Sunglasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/RayBench_Hipster_Reserve_Sunglasses.png')}
                     />
                   </View>
         
         case "Crossbow tactical glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Crossbow_tactical_glasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Crossbow_tactical_glasses.png')}
                     />
                   </View>
         
         case "Gascan glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Gascan_glasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Gascan_glasses.png')}
                     />
                   </View>
         
         case "Special Twitch Rivals 2020 glasses":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Twitch-2020-Glasses.png')}
+                      source={require('../assets/images/itemImage/eyewear/Twitch-2020-Glasses.png')}
                     />
                   </View>
 
@@ -573,77 +573,77 @@ export default function getImage(name , style) {
         case "Ops-Core FAST RAC Headset":
           return <View style={style.contentDetailTop , {height: style.image127x64.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Rac.png')}
+                      source={require('../assets/images/itemImage/headset/Rac.png')}
                     />
                   </View>
         
         case "Peltor ComTac 2 Headset":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/comtac.png')}
+                      source={require('../assets/images/itemImage/headset/comtac.png')}
                     />
                   </View>
         
         case "MSA Sordin Supreme PRO-X/L active Headphone":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Sordin.png')}
+                      source={require('../assets/images/itemImage/headset/Sordin.png')}
                     />
                   </View>
         
         case "GSSH-01 active Headset":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/gssh.png')}
+                      source={require('../assets/images/itemImage/headset/gssh.png')}
                     />
                   </View>
         
         case "Peltor Tactical Sport Headset":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/tacticalSport.png')}
+                      source={require('../assets/images/itemImage/headset/tacticalSport.png')}
                     />
                   </View>
         
         case "Walker's Razor Digital Headset":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/razor.png')}
+                      source={require('../assets/images/itemImage/headset/razor.png')}
                     />
                   </View>
 /* ----------------secure_containers------------------------------------------------------------------------------------------------- */
         case "Secure Container Kappa":
           return <View style={style.contentDetailTop , {height: style.image190x190.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Kappa.png')}
+                      source={require('../assets/images/itemImage/secureContainer/Kappa.png')}
                     />
                   </View>
         
         case "Secure Container Gamma":
           return <View style={style.contentDetailTop , {height: style.image190x190.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Secure_Gamma_Container.png')}
+                      source={require('../assets/images/itemImage/secureContainer/Secure_Gamma_Container.png')}
                     />
                   </View>
         
         case "Secure Container Epsilon":
           return <View style={style.contentDetailTop , {height: style.image253x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Epsilon.png')}
+                      source={require('../assets/images/itemImage/secureContainer/Epsilon.png')}
                     />
                   </View>
         
         case "Secure Container Beta":
           return <View style={style.contentDetailTop , {height: style.image190x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Beta.png')}
+                      source={require('../assets/images/itemImage/secureContainer/Beta.png')}
                     />
                   </View>
         
         case "Secure Container Alpha":
           return <View style={style.contentDetailTop , {height: style.image127x127.height}}>
                     <Image
-                      source={require('../assets/images/itemImage/backpack/Secure_container_Alpha.png')}
+                      source={require('../assets/images/itemImage/secureContainer/Secure_container_Alpha.png')}
                     />
                   </View>
 /* ----------------default------------------------------------------------------------------------------------------------- */
