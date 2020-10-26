@@ -1,7 +1,6 @@
 // Imports
 import React, {Component} from 'react';
 import { View, ActivityIndicator, Dimensions } from 'react-native';
-import * as SQLite from 'expo-sqlite';
 import * as Font from 'expo-font';
 
 // eigene Imports
@@ -9,36 +8,33 @@ import AppNavigator from './src/Navigation/AppNavigator';
 import Style from './src/Style/Style';
 import db from './src/Database/db';
 
-// Datenbankverbindung
-let database = SQLite.openDatabase('eft_three.db');
-
-export default class App extends Component {
-  state = {isLoading: true}; 
+export default class App extends Component { 
+  state = {isLoading: true};
 
   _fetchData = async (myCallback) => {
     await fetch('http://it-luecke.de/EscapeFromTarkov_App/data.json')
     .then(response => response.json())
-    .then(data => { 
+    .then(data => {
       myCallback(data)
     })
-    .catch((error) => alert('FEHLER: \n' + error)) 
+    .catch((error) => alert('FEHLER: \n' + error))
     .done() 
   };
 
   _fetchFont = () => {
-    return Font.loadAsync({
+    return Font.loadAsync({ 
       'BlackOpsOne-Regular': require('./src/assets/fonts/BlackOpsOne-Regular.ttf')
     })
   }
 
   // Einer von 3 Lebenszeitzyklen
-  async componentDidMount() {  
-    this._fetchData((data) => {
+  async componentDidMount() { 
+    this._fetchData((data) => { 
       this._fetchFont();
-      db._dropTables();
-      db._createTables();
+      db._dropTables()
+      db._createTables()
       db._insterDataInRelation(data);
-      this.setState({isLoading: false}); 
+      this.setState({isLoading: false});
     })  
   }; 
 

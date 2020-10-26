@@ -30,7 +30,7 @@ export default function ItemsStack() {
           options={({route}) => {
             const detail = route.params.detail;
             return {
-              headerTitle: detail,
+              headerTitle: 'Detail',
             };
           }}
         />

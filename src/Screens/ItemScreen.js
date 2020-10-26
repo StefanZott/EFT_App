@@ -4,16 +4,15 @@ import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
 import ItemList from '../Components/ItemList';
-import SQLStrings from '../Strings/SQLStrings';
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft_three.db');
+const database = SQLite.openDatabase('eft_twelve.db');
 
 export default class ExchangeObjectsScreen extends Component {
   state = {items: []};
 
   _getData = async (myCallback) => {
-    let innerJoinString = 'SELECT name FROM table_armbands UNION SELECT name FROM table_backpacks UNION SELECT name FROM table_provisions UNION SELECT name FROM table_headsets UNION SELECT name FROM table_eyewears UNION SELECT name FROM table_containers UNION SELECT name FROM table_secure_containers ORDER BY name ASC';
+    let innerJoinString = 'SELECT Name FROM table_armbands UNION SELECT Name FROM table_backpacks UNION SELECT Name FROM table_provisions UNION SELECT Name FROM table_headsets UNION SELECT Name FROM table_eyewears UNION SELECT Name FROM table_containers UNION SELECT Name FROM table_secure_containers ORDER BY Name ASC';
 
     database.transaction((tx) => {
       tx.executeSql(innerJoinString, [], 
@@ -36,7 +35,6 @@ export default class ExchangeObjectsScreen extends Component {
 
     return (
       <View style={styles.container}>
-        {/* console.log(this.state.items) */}
         <ImageBackground source={styles.backgroundImage} style={styles.image}>
           <View style={styles.header}>
             <TextInput style={styles.textInput} /> 
@@ -44,9 +42,9 @@ export default class ExchangeObjectsScreen extends Component {
           <View style={styles.content}>  
             <FlatList 
               data={this.state.items}
-              keyExtractor = {items => items.name} //später ID verwenden als Schlüssel
+              keyExtractor = {items => items.Name} //später ID verwenden als Schlüssel
               renderItem = {({item}) => (
-                <ItemList item = {item} onPress = {() => navigation.navigate('Detail', { detail: item.name})} />
+                <ItemList item = {item} onPress = {() => navigation.navigate('Detail', { detail: item.Name})} />
               )}
               ItemSeparatorComponent = {() => <View style={styles.listSeparator} />}
             />
