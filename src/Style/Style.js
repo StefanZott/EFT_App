@@ -17,7 +17,6 @@ export default function Style(params) {
             activityIndicator: HandyStyle.activityIndicator,
             headerStyle: HandyStyle.headerStyle,
             headerTitleStyle: HandyStyle.headerTitleStyle,
-            listSeparator: HandyStyle.listSeparator,
             textDetail: HandyStyle.textDetail,
             textDetailHeader: HandyStyle.textDetailHeader,
             detailheader: HandyStyle.detailheader,

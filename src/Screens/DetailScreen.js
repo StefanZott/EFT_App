@@ -1,6 +1,6 @@
 // Imports
 import React, {Component} from 'react';
-import { ImageBackground, Dimensions, Image, ActivityIndicator, Text, View} from 'react-native';
+import { ImageBackground, Dimensions, ActivityIndicator, Text, View} from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 // eigene Imports
@@ -9,7 +9,7 @@ import SQLStrings from '../Strings/SQLStrings';
 import getImage from '../Components/createImageContainer';
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft_twelve.db');
+const database = SQLite.openDatabase('eft_fourteen.db');
 
 export default class DetailScreen extends Component {
     state = { item: [] , name: this.props.route.params.detail}

@@ -47,10 +47,6 @@ const styles = StyleSheet.create({
       borderColor: 'white',
       color: 'white'
     },
-    listSeparator: {
-      height: 2,
-      backgroundColor: null
-    },
     textButton: {
       color: 'white',
       backgroundColor: 'black',

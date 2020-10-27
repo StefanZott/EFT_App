@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, Dimensions, FlatList, Text, View, TextInput } from 'react-native';
+import { ImageBackground, Dimensions, FlatList, ActivityIndicator, Text, View, TextInput } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
@@ -8,7 +8,7 @@ import SearchInput from '../Components/SearchInput';
 
 
 // Datenbankverbindung
-const database = SQLite.openDatabase('eft_twelve.db');
+const database = SQLite.openDatabase('eft_fourteen.db');
 
 export default class ExchangeObjectsScreen extends Component {
   state = { items: [], input: '' };
@@ -24,6 +24,16 @@ export default class ExchangeObjectsScreen extends Component {
     });
   }
 
+  _createFlatlist = ({item}) => {
+    let name = item.Name.toLowerCase();
+    let reInput = this.state.input.toLowerCase()
+
+    if (name.indexOf(reInput) !== -1) {
+      console.log(name)
+      return <ItemList item={item} onPress={() => navigation.navigate('Detail', { detail: item.Name })} />
+    }
+  }
+
   componentDidMount() {
     this._getData((rows) => {
       this.setState({ items: rows });
@@ -34,38 +44,41 @@ export default class ExchangeObjectsScreen extends Component {
     const navigation = this.props.navigation
     let styles = Style(Dimensions.get('window').width);
 
+    if (this.state.items.length > 0) {
+      return (
+        <View style={styles.container}>
+          <ImageBackground source={styles.backgroundImage} style={styles.image}>
+            <View style={styles.header}>
+              <TextInput
+                style={styles.textInput}
+                placeholder='Search for Item'
+                onChangeText={text => this.setState({input: text})}
+              
+              />
+            </View>
+            <View style={styles.content}>
+              <FlatList
+                data={this.state.items}
+                keyExtractor={items => items.Name} //später ID verwenden als Schlüssel
+                renderItem = {this._createFlatlist}
+              />
+            </View>
+            <View style={styles.footer}>
+              <Text style={styles.copyright}>Copyright by Luecke-IT</Text>
+            </View>
+          </ImageBackground>
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+            <View  style={styles.activityIndicator}>
+                <ActivityIndicator size='large' color='orange'/>
+            </View>
+        </View>
+    )
+    }
 
-    return (
-      <View style={styles.container}>
-        <ImageBackground source={styles.backgroundImage} style={styles.image}>
-          <View style={styles.header}>
-            <TextInput
-              style={styles.textInput}
-              placeholder='Search for Item'
-              onChangeText={text => this.setState({input: text})}
-            
-            />
-            {console.log(this.state.input)}
-          </View>
-          <View style={styles.content}>
-            <FlatList
-              data={this.state.items}
-              keyExtractor={items => items.Name} //später ID verwenden als Schlüssel
-              renderItem={({ item }) => ({
-                if(this.item.Name.localeCompare(this.state.input)){
-                  return <ItemList item={item} onPress={() => navigation.navigate('Detail', { detail: item.Name })} />
-                }
-              }
-                
-              )}
-              ItemSeparatorComponent={() => <View style={styles.listSeparator} />}
-            />
-          </View>
-          <View style={styles.footer}>
-            <Text style={styles.copyright}>Copyright by Luecke-IT</Text>
-          </View>
-        </ImageBackground>
-      </View>
-    );
+    
   }
 }

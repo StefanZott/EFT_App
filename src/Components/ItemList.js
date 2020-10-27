@@ -1,14 +1,16 @@
 import React from 'react'
-import { Button } from 'react-native'
+import { Button, View } from 'react-native'
 
 export default function(props){
     const {item, onPress }= props; 
     return (
-        <Button 
-            title={item.Name}
-            onPress = {onPress}
-            color='black'
-        />
+        <View style={{marginBottom: 5}}>
+            <Button 
+                title={item.Name}
+                onPress = {onPress}
+                color='black'
+            />
+        </View>
     );
 
     
