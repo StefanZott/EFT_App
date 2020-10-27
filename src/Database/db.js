@@ -5,7 +5,7 @@ import * as SQLite from 'expo-sqlite';
 import SQLStrings from '../Strings/SQLStrings';
 
 // Datenbankverbindung
-let database = SQLite.openDatabase('eft_twelve.db');
+let database = SQLite.openDatabase('eft_fourteen.db');
 
 export default class Database extends Component {
 
