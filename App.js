@@ -8,7 +8,7 @@ import AppNavigator from './src/Navigation/AppNavigator';
 import Style from './src/Style/Style';
 import db from './src/Database/db';
 
-YellowBox.ignoreWarnings([])
+YellowBox.ignoreWarnings([]);
 
 export default class App extends Component {
   state = { isLoading: true };
