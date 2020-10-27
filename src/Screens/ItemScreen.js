@@ -29,8 +29,7 @@ export default class ExchangeObjectsScreen extends Component {
     let reInput = this.state.input.toLowerCase()
 
     if (name.indexOf(reInput) !== -1) {
-      console.log(name)
-      return <ItemList item={item} onPress={() => navigation.navigate('Detail', { detail: item.Name })} />
+      return <ItemList item={item} onPress={() => this.props.navigation.navigate('Detail', { detail: item.Name })} />
     }
   }
 
@@ -41,7 +40,6 @@ export default class ExchangeObjectsScreen extends Component {
   }
 
   render() {
-    const navigation = this.props.navigation
     let styles = Style(Dimensions.get('window').width);
 
     if (this.state.items.length > 0) {
