@@ -4,7 +4,6 @@ import * as SQLite from 'expo-sqlite';
 
 import Style from '../Style/Style';
 import ItemList from '../Components/ItemList';
-import SearchInput from '../Components/SearchInput';
 
 
 // Datenbankverbindung
@@ -24,7 +23,7 @@ export default class ExchangeObjectsScreen extends Component {
     });
   }
 
-  _createFlatlist = ({item}) => {
+  _createFlatlist = ({ item }) => {
     let name = item.Name.toLowerCase();
     let reInput = this.state.input.toLowerCase()
 
@@ -50,15 +49,15 @@ export default class ExchangeObjectsScreen extends Component {
               <TextInput
                 style={styles.textInput}
                 placeholder='Search for Item'
-                onChangeText={text => this.setState({input: text})}
-              
+                onChangeText={text => this.setState({ input: text })}
+
               />
             </View>
             <View style={styles.content}>
               <FlatList
                 data={this.state.items}
                 keyExtractor={items => items.Name} //später ID verwenden als Schlüssel
-                renderItem = {this._createFlatlist}
+                renderItem={this._createFlatlist}
               />
             </View>
             <View style={styles.footer}>
@@ -70,13 +69,13 @@ export default class ExchangeObjectsScreen extends Component {
     } else {
       return (
         <View style={styles.container}>
-            <View  style={styles.activityIndicator}>
-                <ActivityIndicator size='large' color='orange'/>
-            </View>
+          <View style={styles.activityIndicator}>
+            <ActivityIndicator size='large' color='orange' />
+          </View>
         </View>
-    )
+      )
     }
 
-    
+
   }
 }
